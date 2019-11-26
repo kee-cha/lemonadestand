@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand_3DayStarter
 {
-    public class Program
+    public class Pitcher
     {
-        static void Main(string[] args)
-        {
-            Weather degree = new Weather();
-        }
+        public int cupsLeftInPitcher;
     }
 }

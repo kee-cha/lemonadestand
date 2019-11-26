@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand_3DayStarter
 {
-    class Inventory
+    public class Inventory
     {
         // member variables (HAS A)
         public List<Lemon> lemons;
@@ -19,6 +19,7 @@ namespace LemonadeStand_3DayStarter
         {
             lemons = new List<Lemon>();
             sugarCubes = new List<SugarCube>();
+
             iceCubes = new List<IceCube>();
             cups = new List<Cup>();
         }

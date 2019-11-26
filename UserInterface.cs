@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand_3DayStarter
 {
-    static class UserInterface
+    public static class UserInterface
     {
         public static int GetNumberOfItems(string itemsToGet)
         {

@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand_3DayStarter
 {
-    public class Program
+    public class Game
     {
-        static void Main(string[] args)
-        {
-            Weather degree = new Weather();
-        }
+        public Player player;
+        public List<Day> days;
+        public int currentDay;
     }
 }
