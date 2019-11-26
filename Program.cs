@@ -10,7 +10,8 @@ namespace LemonadeStand_3DayStarter
     {
         static void Main(string[] args)
         {
-            Weather degree = new Weather();
+            Weather weather = new Weather();
+            weather.ShowTemp();
         }
     }
 }

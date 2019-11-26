@@ -11,5 +11,6 @@ namespace LemonadeStand_3DayStarter
         public Player player;
         public List<Day> days;
         public int currentDay;
+
     }
 }

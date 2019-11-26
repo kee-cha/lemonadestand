@@ -22,8 +22,6 @@ namespace LemonadeStand_3DayStarter
         {
             Random temp = new Random();
             temperature = temp.Next(55, 100);
-            Console.WriteLine(temperature + "degrees Fahrenheit");
-            Console.ReadLine();
         }
 
         public void GetDailyWeatherCondition()
@@ -31,14 +29,14 @@ namespace LemonadeStand_3DayStarter
             Random weather = new Random();
             int weatherCon = weather.Next(0, 4);
             condition = weatherConditions[weatherCon];
-            Console.WriteLine(condition);
-            Console.ReadLine();
         }
 
         public void ShowTemp()
         {
             GetDailyTemp();
             GetDailyWeatherCondition();
+            Console.WriteLine(temperature + " degrees Fahrenheit and " + condition);
+            Console.ReadLine();
         }
         
     }
