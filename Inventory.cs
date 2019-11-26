@@ -19,7 +19,6 @@ namespace LemonadeStand_3DayStarter
         {
             lemons = new List<Lemon>();
             sugarCubes = new List<SugarCube>();
-
             iceCubes = new List<IceCube>();
             cups = new List<Cup>();
         }

@@ -11,6 +11,25 @@ namespace LemonadeStand_3DayStarter
         public Player player;
         public List<Day> days;
         public int currentDay;
+        public Store store;
 
+        public Game()
+        {
+            currentDay = 0;
+            days = new List<Day>();
+            player = new Player();
+            store = new Store();
+        }
+
+        public void AdddDaysToList()
+        {
+            for(int i =0; i<7; i++)
+            {
+                Day day = new Day();
+                days.Add(day);
+            }
+        }
+
+      
     }
 }

@@ -8,6 +8,7 @@ namespace LemonadeStand_3DayStarter
 {
     public class Weather
     {
+        public string weather;
         public string condition;
         public int temperature;
         public List<string> weatherConditions;
@@ -17,26 +18,28 @@ namespace LemonadeStand_3DayStarter
             weatherConditions = new List<string>() { "sunny", "rainy", "cloudy", "hazy" };
         }
 
-
-        public void GetDailyTemp()
+        public int GetDailyTemp()
         {
             Random temp = new Random();
             temperature = temp.Next(55, 100);
+            return temperature;
         }
 
-        public void GetDailyWeatherCondition()
+        public string GetDailyWeatherCondition()
         {
             Random weather = new Random();
             int weatherCon = weather.Next(0, 4);
             condition = weatherConditions[weatherCon];
+            return condition;
         }
 
-        public void ShowTemp()
+        public string ShowTemp()
         {
             GetDailyTemp();
             GetDailyWeatherCondition();
             Console.WriteLine(temperature + " degrees Fahrenheit and " + condition);
-            Console.ReadLine();
+            weather = Console.ReadLine();
+            return weather;
         }
         
     }

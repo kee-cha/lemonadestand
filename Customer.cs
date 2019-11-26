@@ -8,7 +8,15 @@ namespace LemonadeStand_3DayStarter
 {
     public class Customer
     {
-        string name;
-        List<string> names;
+
+        public List<string> customers;
+        public string name;
+
+        public Customer()
+        {
+            customers = new List<string>() { };
+        }
+
+
     }
 }

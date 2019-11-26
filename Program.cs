@@ -10,8 +10,19 @@ namespace LemonadeStand_3DayStarter
     {
         static void Main(string[] args)
         {
-            Weather weather = new Weather();
-            weather.ShowTemp();
+            
+            //Weather weather = new Weather();
+            //weather.ShowTemp();
+            //Wallet moolah = new Wallet();
+            //double change = moolah.PayMoneyForItems(10);
+            //Console.WriteLine(change);
+            //Console.ReadLine();
+            UserInterface.GetNumberOfItems("lemons");
+            Game game = new Game();
+            game.player.getName();
+            game.gameRun();
+            Recipe recipe = new Recipe();
+            recipe.MakeRecipe();
         }
     }
 }

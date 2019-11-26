@@ -9,10 +9,12 @@ namespace LemonadeStand_3DayStarter
     public class Player
     {
         // member variables (HAS A)
+        public string name;
         public Inventory inventory;
         public Wallet wallet;
         public Pitcher pitcher;
         public Recipe recipe;
+        
 
         // constructor (SPAWNER)
         public Player()
@@ -24,5 +26,11 @@ namespace LemonadeStand_3DayStarter
         }
 
         // member methods (CAN DO)
+        public string getName()
+        {
+            Console.WriteLine("What is your name?");
+            name = Console.ReadLine();
+            return name;
+        }
     }
 }
