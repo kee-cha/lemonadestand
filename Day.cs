@@ -16,6 +16,16 @@ namespace LemonadeStand_3DayStarter
         {
             weather = new Weather();
             customer = new List<Customer>();
-        }       
+        }
+
+        public void AmountOfCustomer()
+        {   
+
+            for(int i = 0; i < customer.Count; i++)
+            {
+                
+
+            }
+        }
     }
 }

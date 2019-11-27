@@ -27,11 +27,12 @@ namespace LemonadeStand_3DayStarter
         }
 
         // member methods (CAN DO)
-        public string getName()
+        public string GetName()
         {
             Console.WriteLine("What is your name?");
             name = Console.ReadLine();
             return name;
         }
+      
     }
 }

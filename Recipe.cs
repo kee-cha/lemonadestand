@@ -45,11 +45,17 @@ namespace LemonadeStand_3DayStarter
         public double CostPerCup()
         {
             Console.WriteLine("How much would you like to sell a cup of lemonade for?");
-            double price = Int32.Parse(Console.ReadLine());
+            double price = Convert.ToDouble(Console.ReadLine());
             pricePerCup = price;
             return pricePerCup;
         }
-
+        public void AskPlayerForRecipe()
+        {
+            AmountOfLemonsUse();
+            AmountOfSugarUse();
+            AmountOfIceUse();
+            CostPerCup();
+        }
 
     }
 }

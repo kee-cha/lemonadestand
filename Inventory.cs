@@ -21,6 +21,7 @@ namespace LemonadeStand_3DayStarter
             sugarCubes = new List<SugarCube>();
             iceCubes = new List<IceCube>();
             cups = new List<Cup>();
+
         }
 
         // member methods (CAN DO)
@@ -58,6 +59,10 @@ namespace LemonadeStand_3DayStarter
                 Cup cup = new Cup();
                 cups.Add(cup);
             }
+        }
+        public void ShowItems()
+        {
+            UserInterface.DisplayInventory(lemons.Count, sugarCubes.Count, iceCubes.Count, cups.Count);
         }
     }
 }

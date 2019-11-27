@@ -10,9 +10,21 @@ namespace LemonadeStand_3DayStarter
     {
         static void Main(string[] args)
         {
-            Game game = new Game();
-            game.AdddDaysToList();
+            UserInterface.WelcomeIntro();
+            Player player = new Player();
+            Inventory inventory = new Inventory();
+            player.inventory.ShowItems();
+            Store store = new Store();
+            store.SellLemons(player);
+            store.SellSugarCubes(player);
+            store.SellIceCubes(player);
+            store.SellCups(player);
+            Console.Clear();
+            player.inventory.ShowItems();
             
+
+
+
         }
     }
 }

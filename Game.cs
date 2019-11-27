@@ -27,14 +27,13 @@ namespace LemonadeStand_3DayStarter
             {
                 Day day = new Day();
                 days.Add(day);
-
-                Console.WriteLine("Day {0}", (i+1));
-                Console.ReadLine();
             }
         }
 
-
-
+        public void RunGame()
+        {
+            store.SellLemons(player);
+        }
       
     }
 }
