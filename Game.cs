@@ -10,13 +10,13 @@ namespace LemonadeStand_3DayStarter
     {
         public Player player;
         public List<Day> days;
-        public int currentDay;
+        public Day currentDay;
         public Store store;
 
         public Game()
         {
-            currentDay = 0;
-            days = new List<Day>();
+            currentDay = new Day();
+            days = new List<Day>() { };
             player = new Player();
             store = new Store();
         }
@@ -32,8 +32,26 @@ namespace LemonadeStand_3DayStarter
 
         public void RunGame()
         {
+            NewDay();
+            UserInterface.WelcomeIntro();
+            Player player = new Player();
+            Inventory inventory = new Inventory();
+            player.ShowMoney();
+            player.inventory.ShowItems();
+            Store store = new Store();
             store.SellLemons(player);
+            store.SellSugarCubes(player);
+            store.SellIceCubes(player);
+            store.SellCups(player);
+            Console.Clear();
+            player.ShowMoney();
+            player.inventory.ShowItems();
         }
-      
+        public void NewDay()
+        {
+            currentDay = days[0];
+            Console.WriteLine(currentDay);
+            Console.ReadLine();
+        }
     }
 }

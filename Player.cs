@@ -33,6 +33,12 @@ namespace LemonadeStand_3DayStarter
             name = Console.ReadLine();
             return name;
         }
+        public double ShowMoney()
+        {
+            double cash = wallet.Money;
+            Console.WriteLine("Money: ${0}",cash);
+            return cash;
+        }
       
     }
 }

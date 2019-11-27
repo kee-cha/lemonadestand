@@ -21,11 +21,14 @@ namespace LemonadeStand_3DayStarter
         public Wallet()
         {
             money = 20.00;
+
         }
 
         public double PayMoneyForItems(double transactionAmount)
         {
             money -= transactionAmount;
+            Console.WriteLine("Money left: S{0}", money);
+            Console.ReadLine();
             return money;
         }
     }

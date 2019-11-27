@@ -10,7 +10,7 @@ namespace LemonadeStand_3DayStarter
     {
         public static void DisplayInventory(int lemon, int sugar, int ice, int cup)
         {
-            Console.WriteLine("Your Inventory" + "\n"
+            Console.WriteLine("Your Inventory- " + "\n"
             + "Lemons: " + lemon + "\n"
             + "Sugar Cubes: " + sugar + "\n"
             + "Ice Cubes: " + ice + "\n" 
