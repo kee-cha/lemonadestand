@@ -23,12 +23,17 @@ namespace LemonadeStand_3DayStarter
 
         public void AdddDaysToList()
         {
-            for(int i =0; i<7; i++)
+            for (int i = 0; i < 7; i++)
             {
                 Day day = new Day();
                 days.Add(day);
+
+                Console.WriteLine("Day {0}", (i+1));
+                Console.ReadLine();
             }
         }
+
+
 
       
     }

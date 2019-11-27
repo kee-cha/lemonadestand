@@ -15,13 +15,17 @@ namespace LemonadeStand_3DayStarter
 
         public Weather()
         {
-            weatherConditions = new List<string>() { "sunny", "rainy", "cloudy", "hazy" };
+            weatherConditions = new List<string>() { "Sunny", "Rainy", "Cloudy", "Hazy"};
+            GetDailyWeatherCondition();
+            GetDailyTemp();
+            
         }
 
         public int GetDailyTemp()
         {
             Random temp = new Random();
-            temperature = temp.Next(55, 100);
+            temperature = temp.Next(55, 95);
+            Console.WriteLine("Temperature is {0}° F.", temperature);
             return temperature;
         }
 
@@ -30,17 +34,8 @@ namespace LemonadeStand_3DayStarter
             Random weather = new Random();
             int weatherCon = weather.Next(0, 4);
             condition = weatherConditions[weatherCon];
+            Console.WriteLine("Forecast is {0}.", condition);
             return condition;
-        }
-
-        public string ShowTemp()
-        {
-            GetDailyTemp();
-            GetDailyWeatherCondition();
-            Console.WriteLine(temperature + " degrees Fahrenheit and " + condition);
-            weather = Console.ReadLine();
-            return weather;
-        }
-        
+        }       
     }
 }

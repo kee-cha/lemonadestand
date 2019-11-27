@@ -26,8 +26,6 @@ namespace LemonadeStand_3DayStarter
             Console.WriteLine("How many lemons do you want to use?");
             int lemonAmount = Int32.Parse(Console.ReadLine());
             amountOfLemons += lemonAmount;
-            Console.WriteLine(amountOfLemons);
-            Console.ReadLine();
             return amountOfLemons;
         }
     }
