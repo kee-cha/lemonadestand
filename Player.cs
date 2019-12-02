@@ -18,7 +18,7 @@ namespace LemonadeStand_3DayStarter
 
         // constructor (SPAWNER)
         public Player()
-        {
+        {            
             inventory = new Inventory();
             wallet = new Wallet();
             pitcher = new Pitcher();
@@ -29,7 +29,10 @@ namespace LemonadeStand_3DayStarter
         public string GetName()
         {
             Console.WriteLine("What is your name?");
-            name = Console.ReadLine();
+            string userName = Console.ReadLine();
+            Console.Clear();
+
+            name = userName.ToUpper();
             return name;
         }
         public double ShowMoney()

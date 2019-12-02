@@ -15,12 +15,12 @@ namespace LemonadeStand_3DayStarter
         public double costOfDrink;
         public Customer(int taste, int rng, int temp, Player player)
         {
-            CustomerPref(taste);
-            DrinkPrice(rng);
+            CustomerFlavorPref(taste);
+            DrinkPricePref(rng);
             willToBuy = AmountCustomerBuy(temp, player);
         }
 
-        public void CustomerPref(int taste)
+        public void CustomerFlavorPref(int taste)
         {
             switch (taste)
             {
@@ -37,7 +37,7 @@ namespace LemonadeStand_3DayStarter
                     break;
             }
         }
-        public void DrinkPrice(int rng)
+        public void DrinkPricePref(int rng)
         {
             int priceOfCup = rng;
             costOfDrink = Convert.ToDouble(priceOfCup) / 7;

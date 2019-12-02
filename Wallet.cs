@@ -31,5 +31,13 @@ namespace LemonadeStand_3DayStarter
             Console.ReadLine();
             return money;
         }
+
+        public void MakeMoneyFromSale(Customer customer, Player player)
+        {
+            if (customer.willToBuy == true)
+            {
+                money += player.recipe.pricePerCup;
+            }
+        }
     }
 }

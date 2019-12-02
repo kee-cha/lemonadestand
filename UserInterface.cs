@@ -8,9 +8,9 @@ namespace LemonadeStand_3DayStarter
 {
     public static class UserInterface
     {
-        public static void DisplayInventory(int lemon, int sugar, int ice, int cup)
+        public static void DisplayInventory(Player player, int lemon, int sugar, int ice, int cup)
         {
-            Console.WriteLine("Your Inventory- " + "\n"
+            Console.WriteLine(player.name + "'s Inventory- " + "\n"
             + "Lemons: " + lemon + "\n"
             + "Sugar Cubes: " + sugar + "\n"
             + "Ice Cubes: " + ice + "\n" 
@@ -41,7 +41,15 @@ namespace LemonadeStand_3DayStarter
         public static int HowManyDaysToSell()
         {
             Console.WriteLine("How many days would you like to sell lemonade?");
-            int numOfDays = Int32.Parse(Console.ReadLine());
+            var daysToSell = Console.ReadLine();
+            Console.Clear();
+            int numOfDays;
+            while (!int.TryParse(daysToSell, out numOfDays))
+            {
+                Console.WriteLine("Please input a valid number of days to sell.");
+                daysToSell = Console.ReadLine();
+                Console.Clear();
+            }
             return numOfDays;
         }
     }

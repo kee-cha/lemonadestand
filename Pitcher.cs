@@ -15,11 +15,16 @@ namespace LemonadeStand_3DayStarter
             cupsLeftInPitcher = 10;
             
         }
-        public void DecreaseCupsInPitcher(Customer customer,int temp, Player player)
+        public void DecreaseCupsInPitcher(Day day, int i)
         {
-            while (customer.AmountCustomerBuy(temp, player) == true)
+            while (day.cust[i].willToBuy == true)
             {
                 cupsLeftInPitcher--;
+
+                if (cupsLeftInPitcher == 0)
+                {
+
+                }
             }
         }
     }

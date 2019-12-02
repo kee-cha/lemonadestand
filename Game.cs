@@ -21,23 +21,24 @@ namespace LemonadeStand_3DayStarter
         public Game()
         {            
             days = new List<Day>() { };
+            store = new Store();
             player = new Player();
-            store = new Store();            
         }        
         public void RunGame()
         {
             UserInterface.WelcomeIntro();
-            numOfDays = UserInterface.HowManyDaysToSell();
+            player.GetName();
+            numOfDays = UserInterface.HowManyDaysToSell();          
             AdddDaysToList();
             InitializCurrentDay();
-            player.GetName();
-            player.inventory.ShowItems();
+            player.ShowMoney();
+            player.inventory.ShowItems(player);
             store.BuyItems(player);
             Console.Clear();
             Console.WriteLine("Today is " + newTemp + "°F and " + currentDay.weather.condition);
             Console.ReadLine();
             player.ShowMoney();
-            player.inventory.ShowItems();            
+            player.inventory.ShowItems(player);            
             player.recipe.AskPlayerForRecipe();
             currentDay.CustomerPerWeather(currentDay, randomNum, newTemp, player);
         }
