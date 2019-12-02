@@ -8,6 +8,7 @@ namespace LemonadeStand_3DayStarter
 {
     public class Recipe
     {
+        public string drinkTaste;
         public int amountOfLemons;
         public int amountOfSugarCubes;
         public int amountOfIceCubes;
@@ -20,34 +21,45 @@ namespace LemonadeStand_3DayStarter
             amountOfIceCubes = 0;
             pricePerCup = 0;
         }
-
-        public int AmountOfLemonsUse()
+        public void DetermineTaste()
+        {
+            int tasteDif = amountOfSugarCubes - amountOfLemons;
+            if (tasteDif > 0)
+            {
+                drinkTaste = "sweet";
+            }
+            else if (tasteDif < 0)
+            {
+                drinkTaste = "sour";
+            }
+            else
+            {
+                drinkTaste = "balance";
+            }
+        }
+        public void AmountOfLemonsUse()
         {
             Console.WriteLine("How many lemons do you want to use?");
             int lemonAmount = Int32.Parse(Console.ReadLine());
-            amountOfLemons += lemonAmount;
-            return amountOfLemons;
+            amountOfLemons = lemonAmount;
         }
-        public int AmountOfSugarUse()
+        public void AmountOfSugarUse()
         {
             Console.WriteLine("How many sugar cubes do you want to use?");
             int sugarAmount = Int32.Parse(Console.ReadLine());
-            amountOfSugarCubes += sugarAmount;
-            return amountOfSugarCubes;
+            amountOfSugarCubes = sugarAmount;
         }
-        public int AmountOfIceUse()
+        public void AmountOfIceUse()
         {
             Console.WriteLine("How many ice cubes do you want to use?");
             int iceCubeAmount = Int32.Parse(Console.ReadLine());
-            amountOfIceCubes += iceCubeAmount;
-            return amountOfIceCubes;
+            amountOfIceCubes = iceCubeAmount;
         }
-        public double CostPerCup()
+        public void CostPerCup()
         {
             Console.WriteLine("How much would you like to sell a cup of lemonade for?");
             double price = Convert.ToDouble(Console.ReadLine());
             pricePerCup = price;
-            return pricePerCup;
         }
         public void AskPlayerForRecipe()
         {
@@ -55,6 +67,7 @@ namespace LemonadeStand_3DayStarter
             AmountOfSugarUse();
             AmountOfIceUse();
             CostPerCup();
+            DetermineTaste();
         }
 
     }
