@@ -78,5 +78,13 @@ namespace LemonadeStand_3DayStarter
         {
             wallet.PayMoneyForItems(transactionAmount);
         }
+
+        public void BuyItems(Player player)
+        {
+            SellLemons(player);
+            SellSugarCubes(player);
+            SellIceCubes(player);
+            SellCups(player);
+        }
     }
 }

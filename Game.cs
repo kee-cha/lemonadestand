@@ -15,6 +15,7 @@ namespace LemonadeStand_3DayStarter
         public int numOfDays;
         public Random randomNum = new Random();
         public int newTemp;
+
      
 
         public Game()
@@ -25,30 +26,20 @@ namespace LemonadeStand_3DayStarter
         }        
         public void RunGame()
         {
-            //UserInterface.WelcomeIntro();
+            UserInterface.WelcomeIntro();
             numOfDays = UserInterface.HowManyDaysToSell();
             AdddDaysToList();
             InitializCurrentDay();
-            //Player player = new Player();
-            //Inventory inventory = new Inventory();
-            //player.inventory.ShowItems();
-            //Store store = new Store();
-            //store.SellLemons(player);
-            //store.SellSugarCubes(player);
-            //store.SellIceCubes(player);
-            //store.SellCups(player);
-            //Console.Clear();
-            //player.ShowMoney();
-            //player.inventory.ShowItems();
+            player.GetName();
+            player.inventory.ShowItems();
+            store.BuyItems(player);
+            Console.Clear();
+            Console.WriteLine("Today is " + newTemp + "°F and " + currentDay.weather.condition);
+            Console.ReadLine();
+            player.ShowMoney();
+            player.inventory.ShowItems();            
             player.recipe.AskPlayerForRecipe();
             currentDay.CustomerPerWeather(currentDay, randomNum, newTemp, player);
-            for (int i = 0; i < currentDay.cust.Count; i++)
-            {
-                Console.WriteLine(currentDay.cust[i].willToBuy);
-                Console.WriteLine(currentDay.cust[i].costOfDrink + " " + currentDay.cust[i].tastePref);
-            }
-            Console.WriteLine(currentDay.customers);
-            Console.ReadLine();
         }
         public void AdddDaysToList()
         {

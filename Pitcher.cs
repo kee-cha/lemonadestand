@@ -9,5 +9,18 @@ namespace LemonadeStand_3DayStarter
     public class Pitcher
     {
         public int cupsLeftInPitcher;
+
+        public Pitcher()
+        {
+            cupsLeftInPitcher = 10;
+            
+        }
+        public void DecreaseCupsInPitcher(Customer customer,int temp, Player player)
+        {
+            while (customer.AmountCustomerBuy(temp, player) == true)
+            {
+                cupsLeftInPitcher--;
+            }
+        }
     }
 }
