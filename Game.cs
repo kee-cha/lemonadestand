@@ -15,21 +15,23 @@ namespace LemonadeStand_3DayStarter
         public int numOfDays;
         public Random randomNum = new Random();
         public int newTemp;
+        public bool outOfCup;
 
-     
+
 
         public Game()
-        {            
+        {
             days = new List<Day>() { };
             store = new Store();
             player = new Player();
-        }        
+
+        }
         public void RunGame()
         {
             UserInterface.WelcomeIntro();
             player.GetName();
-            numOfDays = UserInterface.HowManyDaysToSell();          
-            AdddDaysToList();
+            numOfDays = UserInterface.HowManyDaysToSell();
+            ShowForecastForAmountOfDays();
             InitializCurrentDay();
             player.ShowMoney();
             player.inventory.ShowItems(player);
@@ -38,15 +40,34 @@ namespace LemonadeStand_3DayStarter
             Console.WriteLine("Today is " + newTemp + "°F and " + currentDay.weather.condition);
             Console.ReadLine();
             player.ShowMoney();
-            player.inventory.ShowItems(player);            
+            player.inventory.ShowItems(player);
             player.recipe.AskPlayerForRecipe();
             currentDay.CustomerPerWeather(currentDay, randomNum, newTemp, player);
+            for (int i = 0; i < currentDay.cust.Count; i++)
+            {
+                outOfCup = player.pitcher.CheckOutOfCups(player);
+                if (outOfCup == true)
+                {
+                    break;
+                }
+                else
+                {
+                    player.pitcher.DecreaseCupsInPitcher(currentDay, i, player);
+                }                
+            }
+            Console.ReadLine();
+            player.ShowMoney();
+            Console.WriteLine("{0} customers bought lemonade.", player.pitcher.custCounter);
+            player.inventory.ShowItems(player);
+            Console.ReadLine();
+
+
         }
-        public void AdddDaysToList()
+        public void ShowForecastForAmountOfDays()
         {
             for (int i = 0; i < numOfDays; i++)
             {
-                Console.WriteLine("Day: " +(i+1)); 
+                Console.WriteLine("Day: " + (i + 1));
                 Day day = new Day(randomNum.Next(55, 95), randomNum.Next(0, 4));
                 days.Add(day);
                 Console.WriteLine();
@@ -54,17 +75,17 @@ namespace LemonadeStand_3DayStarter
             Console.ReadLine();
             Console.Clear();
         }
-        
+
         public void InitializCurrentDay()
         {
             currentDay = days[0];
             switch (randomNum.Next(2))
             {
-                case 1:
-                    newTemp = currentDay.weather.temperature + 5;
-                    break;
                 case 0:
-                    newTemp = currentDay.weather.temperature - 5;
+                    newTemp = currentDay.weather.temperature + 3;
+                    break;
+                case 1:
+                    newTemp = currentDay.weather.temperature - 3;
                     break;
                 default:
                     break;

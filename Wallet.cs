@@ -32,12 +32,9 @@ namespace LemonadeStand_3DayStarter
             return money;
         }
 
-        public void MakeMoneyFromSale(Customer customer, Player player)
+        public void MakeMoneyFromSale(Player player)
         {
-            if (customer.willToBuy == true)
-            {
-                money += player.recipe.pricePerCup;
-            }
+            money += player.recipe.pricePerCup;
         }
     }
 }

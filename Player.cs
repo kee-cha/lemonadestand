@@ -31,7 +31,6 @@ namespace LemonadeStand_3DayStarter
             Console.WriteLine("What is your name?");
             string userName = Console.ReadLine();
             Console.Clear();
-
             name = userName.ToUpper();
             return name;
         }

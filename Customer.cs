@@ -13,7 +13,7 @@ namespace LemonadeStand_3DayStarter
         public bool willToBuy = false;
         
         public double costOfDrink;
-        public Customer(int taste, int rng, int temp, Player player)
+        public Customer(int taste, double rng, int temp, Player player)
         {
             CustomerFlavorPref(taste);
             DrinkPricePref(rng);
@@ -37,27 +37,27 @@ namespace LemonadeStand_3DayStarter
                     break;
             }
         }
-        public void DrinkPricePref(int rng)
+        public void DrinkPricePref(double rng)
         {
-            int priceOfCup = rng;
-            costOfDrink = Convert.ToDouble(priceOfCup) / 7;
+            double priceOfCup = rng;
+            costOfDrink = priceOfCup;
         }
 
         public bool AmountCustomerBuy(int temp, Player player)
         {
             if (temp >= 70 && player.recipe.amountOfIceCubes > 4 && (tastePref == player.recipe.drinkTaste || player.recipe.drinkTaste == "balance") && costOfDrink > player.recipe.pricePerCup)
             {
-                Console.WriteLine("Willing to buy");
+                
                 return true;
             }
             else if (temp < 70 && player.recipe.amountOfIceCubes <= 4 && (tastePref == player.recipe.drinkTaste || player.recipe.drinkTaste == "balance") && costOfDrink > player.recipe.pricePerCup)
             {
-                Console.WriteLine("Willing to buy");
+                
                 return true;
             }
             else
             {
-                Console.WriteLine("This drink doen't suit me.");
+                
                 return false;
             }
         }
