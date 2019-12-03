@@ -11,7 +11,7 @@ namespace LemonadeStand_3DayStarter
         public string tastePref;
         public string name;
         public bool willToBuy = false;
-        
+
         public double costOfDrink;
         public Customer(int taste, double rng, int temp, Player player)
         {
@@ -47,17 +47,17 @@ namespace LemonadeStand_3DayStarter
         {
             if (temp >= 70 && player.recipe.amountOfIceCubes > 4 && (tastePref == player.recipe.drinkTaste || player.recipe.drinkTaste == "balance") && costOfDrink > player.recipe.pricePerCup)
             {
-                
+
                 return true;
             }
             else if (temp < 70 && player.recipe.amountOfIceCubes <= 4 && (tastePref == player.recipe.drinkTaste || player.recipe.drinkTaste == "balance") && costOfDrink > player.recipe.pricePerCup)
             {
-                
+
                 return true;
             }
             else
             {
-                
+
                 return false;
             }
         }

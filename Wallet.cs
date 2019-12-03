@@ -9,6 +9,7 @@ namespace LemonadeStand_3DayStarter
     public class Wallet
     {
         private double money;
+        public double profit;
 
         public double Money
         {
@@ -21,7 +22,7 @@ namespace LemonadeStand_3DayStarter
         public Wallet()
         {
             money = 20.00;
-
+            profit = 0;
         }
 
         public double PayMoneyForItems(double transactionAmount)
@@ -35,6 +36,10 @@ namespace LemonadeStand_3DayStarter
         public void MakeMoneyFromSale(Player player)
         {
             money += player.recipe.pricePerCup;
+        }
+        public void DailyProfit(Player player)
+        {
+            profit += player.recipe.pricePerCup;
         }
     }
 }

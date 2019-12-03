@@ -8,64 +8,86 @@ namespace LemonadeStand_3DayStarter
 {
     public class Store
     {
-        // member variables (HAS A)
         private double pricePerLemon;
         private double pricePerSugarCube;
         private double pricePerIceCube;
         private double pricePerCup;
 
-        // constructor (SPAWNER)
         public Store()
         {
-            pricePerLemon = .5;
-            pricePerSugarCube = .1;
+            pricePerLemon = .35;
+            pricePerSugarCube = .05;
             pricePerIceCube = .01;
-            pricePerCup = .25;
+            pricePerCup = .15;
         }
 
-        // member methods (CAN DO)
         public void SellLemons(Player player)
         {
-            int lemonsToPurchase = UserInterface.GetNumberOfItems("lemons");
-            double transactionAmount = CalculateTransactionAmount(lemonsToPurchase, pricePerLemon);
-            if(player.wallet.Money >= transactionAmount)
+            int lemonsToPurchase;
+            double transactionAmount;
+            do
             {
-                player.wallet.PayMoneyForItems(transactionAmount);
-                player.inventory.AddLemonsToInventory(lemonsToPurchase);
-            }
+                lemonsToPurchase = UserInterface.GetNumberOfItems("lemons");
+                transactionAmount = CalculateTransactionAmount(lemonsToPurchase, pricePerLemon);
+                if (player.wallet.Money >= transactionAmount)
+                {
+                    player.wallet.PayMoneyForItems(transactionAmount);
+                    player.inventory.AddLemonsToInventory(lemonsToPurchase);
+                    break;
+                }
+            } while (transactionAmount > player.wallet.Money);
         }
 
         public void SellSugarCubes(Player player)
         {
-            int sugarToPurchase = UserInterface.GetNumberOfItems("sugar");
-            double transactionAmount = CalculateTransactionAmount(sugarToPurchase, pricePerSugarCube);
-            if(player.wallet.Money >= transactionAmount)
+            int sugarToPurchase;
+            double transactionAmount;
+            do
             {
-                PerformTransaction(player.wallet, transactionAmount);
-                player.inventory.AddSugarCubesToInventory(sugarToPurchase);
-            }
+                sugarToPurchase = UserInterface.GetNumberOfItems("sugar");
+                transactionAmount = CalculateTransactionAmount(sugarToPurchase, pricePerSugarCube);
+                if (player.wallet.Money >= transactionAmount)
+                {
+                    PerformTransaction(player.wallet, transactionAmount);
+                    player.inventory.AddSugarCubesToInventory(sugarToPurchase);
+                    break;
+                }
+            } while (transactionAmount > player.wallet.Money);
         }
 
         public void SellIceCubes(Player player)
         {
-            int iceCubesToPurchase = UserInterface.GetNumberOfItems("ice cubes");
-            double transactionAmount = CalculateTransactionAmount(iceCubesToPurchase, pricePerIceCube);
-            if(player.wallet.Money >= transactionAmount)
+            int iceCubesToPurchase;
+            double transactionAmount;
+            do
             {
-                PerformTransaction(player.wallet, transactionAmount);
-                player.inventory.AddIceCubesToInventory(iceCubesToPurchase);
-            }
-        }
+                iceCubesToPurchase = UserInterface.GetNumberOfItems("ice cubes");
+                transactionAmount = CalculateTransactionAmount(iceCubesToPurchase, pricePerIceCube);
+                if (player.wallet.Money >= transactionAmount)
+                {
+                    PerformTransaction(player.wallet, transactionAmount);
+                    player.inventory.AddIceCubesToInventory(iceCubesToPurchase);
+                    break;
+                }
+            }while (transactionAmount > player.wallet.Money);
+            } 
+
 
         public void SellCups(Player player)
         {
-            int cupsToPurchase = UserInterface.GetNumberOfItems("cups");
-            double transactionAmount = CalculateTransactionAmount(cupsToPurchase, pricePerCup);
-            if(player.wallet.Money >= transactionAmount)
+            int cupsToPurchase;
+            double transactionAmount;
+            do
             {
-                PerformTransaction(player.wallet, transactionAmount);
-                player.inventory.AddCupsToInventory(cupsToPurchase);
-            }
+                cupsToPurchase = UserInterface.GetNumberOfItems("cups");
+                transactionAmount = CalculateTransactionAmount(cupsToPurchase, pricePerCup);
+                if (player.wallet.Money >= transactionAmount)
+                {
+                    PerformTransaction(player.wallet, transactionAmount);
+                    player.inventory.AddCupsToInventory(cupsToPurchase);
+                    break;
+                }
+            } while (transactionAmount > player.wallet.Money);
         }
 
         private double CalculateTransactionAmount(int itemCount, double itemPricePerUnit)

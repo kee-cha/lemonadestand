@@ -88,5 +88,9 @@ namespace LemonadeStand_3DayStarter
                 iceCubes.RemoveAt(0);
             }
         }
+        public void TakeCupsOutInventory(Player player)
+        {
+              cups.RemoveAt(0);
+        }
     }
 }

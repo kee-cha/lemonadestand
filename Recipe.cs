@@ -37,52 +37,57 @@ namespace LemonadeStand_3DayStarter
                 drinkTaste = "balance";
             }
         }
-        public void AmountOfLemonsUse()
+        public void AmountOfLemonsUse(Player player)
         {
             Console.WriteLine("How many lemons do you want to use?");
             var lemonAmount = Console.ReadLine();
-            while (!int.TryParse(lemonAmount, out amountOfLemons))
+            while (!int.TryParse(lemonAmount, out amountOfLemons) || amountOfLemons < 0)
             {
                 Console.WriteLine("Please input a valid amount of lemons to use.");
                 lemonAmount = Console.ReadLine();
-            }            
+            }
+
+            player.inventory.TakeLemonsOutInventory(player);
+
         }
 
-        public void AmountOfSugarUse()
+        public void AmountOfSugarUse(Player player)
         {
             Console.WriteLine("How many sugar cubes do you want to use?");
             var sugar = Console.ReadLine();
-            while (!int.TryParse(sugar, out amountOfSugarCubes))
+            while (!int.TryParse(sugar, out amountOfSugarCubes) || amountOfSugarCubes < 0)
             {
                 Console.WriteLine("Please input a valid amount of sugar cubes to use.");
                 sugar = Console.ReadLine();
             }
+            player.inventory.TakeSugarCubesOutInventory(player);
         }
-        public void AmountOfIceUse()
+        public void AmountOfIceUse(Player player)
         {
             Console.WriteLine("How many ice cubes do you want to use?");
             var iceCubeAmount = Console.ReadLine();
-            while (!int.TryParse(iceCubeAmount, out amountOfIceCubes))
+            while (!int.TryParse(iceCubeAmount, out amountOfIceCubes) || amountOfIceCubes < 0)
             {
                 Console.WriteLine("Please input a valid amount of ice cubes to use.");
                 iceCubeAmount = Console.ReadLine();
             }
+            player.inventory.TakeIceCubesOutInventory(player);
         }
         public void CostPerCup()
         {
             Console.WriteLine("How much would you like to sell a cup of lemonade for?");
             var price = Console.ReadLine();
-            while (!double.TryParse(price, out pricePerCup))
+            while (!double.TryParse(price, out pricePerCup) || pricePerCup < 0)
             {
                 Console.WriteLine("Please input a valid price for each cup of lemonade to sell.");
                 price = Console.ReadLine();
             }
         }
-        public void AskPlayerForRecipe()
+        public void AskPlayerForRecipe(Player player)
         {
-            AmountOfLemonsUse();
-            AmountOfSugarUse();
-            AmountOfIceUse();
+            AmountOfLemonsUse(player);
+            AmountOfSugarUse(player);
+            AmountOfIceUse(player);
             CostPerCup();
             DetermineTaste();
         }

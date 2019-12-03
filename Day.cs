@@ -8,7 +8,7 @@ namespace LemonadeStand_3DayStarter
 {
     public class Day
     {
-        public List<Customer> cust= new List<Customer>(){};
+        public List<Customer> cust = new List<Customer>() { };
         public Weather weather;
         public Customer customer;
 
@@ -32,13 +32,13 @@ namespace LemonadeStand_3DayStarter
             switch (currentDay.weather.condition.ToLower())
             {
                 case "sunny":
-                    GenerateCustomer(100,rng,temp, player);
+                    GenerateCustomer(100, rng, temp, player);
                     break;
                 case "rainy":
-                    GenerateCustomer(50,rng, temp, player);
+                    GenerateCustomer(50, rng, temp, player);
                     break;
                 case "hazy":
-                    GenerateCustomer(70,rng, temp, player);
+                    GenerateCustomer(70, rng, temp, player);
                     break;
                 case "cloudy":
                     GenerateCustomer(80, rng, temp, player);

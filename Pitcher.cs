@@ -19,14 +19,17 @@ namespace LemonadeStand_3DayStarter
             recipe = new Recipe();
 
         }
-        public void DecreaseCupsInPitcher(Day day, int i, Player player)
+        public void DecreaseCupsInPitcher(Day day, int j, Player player)
         {
-            if (day.cust[i].willToBuy == true)
+            if (day.cust[j].willToBuy == true)
             {
                 if (cupsLeftInPitcher == 0)
                 {
                     if (player.inventory.lemons.Count >= recipe.amountOfLemons && player.inventory.sugarCubes.Count >= recipe.amountOfSugarCubes && player.inventory.iceCubes.Count >= recipe.amountOfSugarCubes)
                     {
+                        player.inventory.TakeIceCubesOutInventory(player);
+                        player.inventory.TakeLemonsOutInventory(player);
+                        player.inventory.TakeSugarCubesOutInventory(player);
                         cupsLeftInPitcher = 10;
                     }
                     else
@@ -37,13 +40,16 @@ namespace LemonadeStand_3DayStarter
                 }
                 else
                 {
+                    player.inventory.TakeCupsOutInventory(player);
                     custCounter++;
                     cupsLeftInPitcher--;
                     player.wallet.MakeMoneyFromSale(player);
+                    player.wallet.DailyProfit(player);
                 }
+                
             }
         }
-        public bool CheckOutOfCups(Player player)
+        public bool CheckIfOutOfCups(Player player)
         {
             if (player.inventory.cups.Count == 0)
             {

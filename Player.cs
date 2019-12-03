@@ -14,18 +14,15 @@ namespace LemonadeStand_3DayStarter
         public Wallet wallet;
         public Pitcher pitcher;
         public Recipe recipe;
-        
 
-        // constructor (SPAWNER)
         public Player()
-        {            
+        {
             inventory = new Inventory();
             wallet = new Wallet();
             pitcher = new Pitcher();
             recipe = new Recipe();
         }
 
-        // member methods (CAN DO)
         public string GetName()
         {
             Console.WriteLine("What is your name?");
@@ -37,9 +34,16 @@ namespace LemonadeStand_3DayStarter
         public double ShowMoney()
         {
             double cash = wallet.Money;
-            Console.WriteLine("Money: ${0}",cash);
+            Console.WriteLine("Money: ${0}", cash);
             return cash;
         }
-      
+
+        public double ShowProfit()
+        {
+            double dailyProfit = wallet.profit;
+            Console.WriteLine("Profit made is ${0}.", dailyProfit);
+            return dailyProfit;
+        }
+
     }
 }

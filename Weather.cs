@@ -12,11 +12,11 @@ namespace LemonadeStand_3DayStarter
         public string condition;
         public int temperature;
         public List<string> weatherConditions;
- 
+
 
         public Weather(int temp, int cond)
         {
-            weatherConditions = new List<string>() { "Sunny", "Rainy", "Cloudy", "Hazy"};
+            weatherConditions = new List<string>() { "Sunny", "Rainy", "Cloudy", "Hazy" };
             GetDailyTemp(temp);
             GetDailyWeatherCondition(cond);
         }
@@ -34,6 +34,6 @@ namespace LemonadeStand_3DayStarter
             condition = weatherConditions[weatherCon];
             Console.WriteLine("Forecast is {0}.", condition);
             return condition;
-        }                   
+        }
     }
 }

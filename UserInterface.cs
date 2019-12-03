@@ -13,7 +13,7 @@ namespace LemonadeStand_3DayStarter
             Console.WriteLine(player.name + "'s Inventory- " + "\n"
             + "Lemons: " + lemon + "\n"
             + "Sugar Cubes: " + sugar + "\n"
-            + "Ice Cubes: " + ice + "\n" 
+            + "Ice Cubes: " + ice + "\n"
             + "Cups: " + cup + "\n");
             Console.ReadLine();
         }
@@ -41,16 +41,28 @@ namespace LemonadeStand_3DayStarter
         public static int HowManyDaysToSell()
         {
             Console.WriteLine("How many days would you like to sell lemonade?");
-            var daysToSell = Console.ReadLine();
+            string daysToSell = Console.ReadLine();
             Console.Clear();
             int numOfDays;
-            while (!int.TryParse(daysToSell, out numOfDays))
+            while (!int.TryParse(daysToSell, out numOfDays) || numOfDays < 0)
             {
                 Console.WriteLine("Please input a valid number of days to sell.");
                 daysToSell = Console.ReadLine();
                 Console.Clear();
             }
             return numOfDays;
+        }
+        public static string GameOver()
+        {
+            Console.WriteLine("Game over. You are out of money.");
+            string youLose = Console.ReadLine();
+            return youLose;
+        }
+        public static string DoneSellingLemonaade()
+        {
+            Console.WriteLine("Well done. Your days of selling lemonades are now over.");
+            string allDone = Console.ReadLine();
+            return allDone;
         }
     }
 }

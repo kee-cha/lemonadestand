@@ -16,8 +16,7 @@ namespace LemonadeStand_3DayStarter
         public Random randomNum = new Random();
         public int newTemp;
         public bool outOfCup;
-
-
+        public double beginMoney;
 
         public Game()
         {
@@ -32,36 +31,50 @@ namespace LemonadeStand_3DayStarter
             player.GetName();
             numOfDays = UserInterface.HowManyDaysToSell();
             ShowForecastForAmountOfDays();
-            InitializCurrentDay();
-            player.ShowMoney();
-            player.inventory.ShowItems(player);
-            store.BuyItems(player);
-            Console.Clear();
-            Console.WriteLine("Today is " + newTemp + "°F and " + currentDay.weather.condition);
-            Console.ReadLine();
-            player.ShowMoney();
-            player.inventory.ShowItems(player);
-            player.recipe.AskPlayerForRecipe();
-            currentDay.CustomerPerWeather(currentDay, randomNum, newTemp, player);
-            for (int i = 0; i < currentDay.cust.Count; i++)
+            for (int i = 0; i < numOfDays; i++)
             {
-                outOfCup = player.pitcher.CheckOutOfCups(player);
-                if (outOfCup == true)
+                if (player.wallet.Money == 0)
                 {
-                    break;
+                    UserInterface.GameOver();
                 }
                 else
                 {
-                    player.pitcher.DecreaseCupsInPitcher(currentDay, i, player);
+                    InitializCurrentDay(i);
+                    beginMoney = player.ShowMoney();
+                    player.inventory.ShowItems(player);
+                    store.BuyItems(player);
+                    Console.Clear();
+                    Console.WriteLine("Today is " + newTemp + "°F and " + currentDay.weather.condition);
+                    Console.ReadLine();
+                    player.ShowMoney();
+                    player.inventory.ShowItems(player);
+                    player.recipe.AskPlayerForRecipe(player);
+                    currentDay.CustomerPerWeather(currentDay, randomNum, newTemp, player);
+                    for (int j = 0; j < currentDay.cust.Count; j++)
+                    {
+                        outOfCup = player.pitcher.CheckIfOutOfCups(player);
+                        if (outOfCup == true)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            player.pitcher.DecreaseCupsInPitcher(currentDay, j, player);
+                        }
+                    }                    
+                    Console.ReadLine();
+                    player.ShowMoney();
+                    player.ShowProfit();
+                    Console.WriteLine("{0} customers bought lemonade.", player.pitcher.custCounter);
+                    player.inventory.ShowItems(player);
+                    Console.ReadLine();
+                    Console.Clear();
+                    player.pitcher.custCounter = 0;
+                    player.wallet.profit = 0;
                 }                
             }
-            Console.ReadLine();
+            UserInterface.DoneSellingLemonaade();
             player.ShowMoney();
-            Console.WriteLine("{0} customers bought lemonade.", player.pitcher.custCounter);
-            player.inventory.ShowItems(player);
-            Console.ReadLine();
-
-
         }
         public void ShowForecastForAmountOfDays()
         {
@@ -76,7 +89,7 @@ namespace LemonadeStand_3DayStarter
             Console.Clear();
         }
 
-        public void InitializCurrentDay()
+        public void InitializCurrentDay(int i)
         {
             currentDay = days[0];
             switch (randomNum.Next(2))
@@ -90,7 +103,7 @@ namespace LemonadeStand_3DayStarter
                 default:
                     break;
             }
-            Console.WriteLine("Today is " + newTemp + "°F and " + currentDay.weather.condition);
+            Console.WriteLine("Day " + (i + 1) + " current weather: " + newTemp + "°F and " + currentDay.weather.condition);
             Console.ReadLine();
             days.RemoveAt(0);
         }
