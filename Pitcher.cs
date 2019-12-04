@@ -46,7 +46,7 @@ namespace LemonadeStand_3DayStarter
                     player.wallet.MakeMoneyFromSale(player);
                     player.wallet.DailyProfit(player);
                 }
-                
+
             }
         }
         public bool CheckIfOutOfCups(Player player)

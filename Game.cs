@@ -23,7 +23,6 @@ namespace LemonadeStand_3DayStarter
             days = new List<Day>() { };
             store = new Store();
             player = new Player();
-
         }
         public void RunGame()
         {
@@ -48,6 +47,7 @@ namespace LemonadeStand_3DayStarter
                     Console.ReadLine();
                     player.ShowMoney();
                     player.inventory.ShowItems(player);
+                    UserInterface.MakePitcherDirection();
                     player.recipe.AskPlayerForRecipe(player);
                     currentDay.CustomerPerWeather(currentDay, randomNum, newTemp, player);
                     for (int j = 0; j < currentDay.cust.Count; j++)
@@ -61,8 +61,7 @@ namespace LemonadeStand_3DayStarter
                         {
                             player.pitcher.DecreaseCupsInPitcher(currentDay, j, player);
                         }
-                    }                    
-                    Console.ReadLine();
+                    }
                     player.ShowMoney();
                     player.ShowProfit();
                     Console.WriteLine("{0} customers bought lemonade.", player.pitcher.custCounter);
@@ -71,10 +70,17 @@ namespace LemonadeStand_3DayStarter
                     Console.Clear();
                     player.pitcher.custCounter = 0;
                     player.wallet.profit = 0;
-                }                
+                    if (i == (numOfDays - 1))
+                    {
+                        UserInterface.DoneSellingLemonaade();
+                        Console.Clear();
+                        player.ShowMoney();
+                        player.wallet.DailyProfit(player);
+                    }
+                }
             }
-            UserInterface.DoneSellingLemonaade();
-            player.ShowMoney();
+            UserInterface.ShowFinalProfit(player);
+
         }
         public void ShowForecastForAmountOfDays()
         {

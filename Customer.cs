@@ -39,7 +39,7 @@ namespace LemonadeStand_3DayStarter
         }
         public void DrinkPricePref(double rng)
         {
-            double priceOfCup = rng;
+            double priceOfCup = rng * 2;
             costOfDrink = priceOfCup;
         }
 

@@ -41,7 +41,7 @@ namespace LemonadeStand_3DayStarter
         {
             Console.WriteLine("How many lemons do you want to use?");
             var lemonAmount = Console.ReadLine();
-            while (!int.TryParse(lemonAmount, out amountOfLemons) || amountOfLemons < 0)
+            while (!int.TryParse(lemonAmount, out amountOfLemons) || amountOfLemons < 0 || amountOfLemons > player.inventory.lemons.Count)
             {
                 Console.WriteLine("Please input a valid amount of lemons to use.");
                 lemonAmount = Console.ReadLine();
@@ -55,7 +55,7 @@ namespace LemonadeStand_3DayStarter
         {
             Console.WriteLine("How many sugar cubes do you want to use?");
             var sugar = Console.ReadLine();
-            while (!int.TryParse(sugar, out amountOfSugarCubes) || amountOfSugarCubes < 0)
+            while (!int.TryParse(sugar, out amountOfSugarCubes) || amountOfSugarCubes < 0 || amountOfSugarCubes > player.inventory.sugarCubes.Count)
             {
                 Console.WriteLine("Please input a valid amount of sugar cubes to use.");
                 sugar = Console.ReadLine();
@@ -66,7 +66,7 @@ namespace LemonadeStand_3DayStarter
         {
             Console.WriteLine("How many ice cubes do you want to use?");
             var iceCubeAmount = Console.ReadLine();
-            while (!int.TryParse(iceCubeAmount, out amountOfIceCubes) || amountOfIceCubes < 0)
+            while (!int.TryParse(iceCubeAmount, out amountOfIceCubes) || amountOfIceCubes < 0 || amountOfIceCubes > player.inventory.iceCubes.Count)
             {
                 Console.WriteLine("Please input a valid amount of ice cubes to use.");
                 iceCubeAmount = Console.ReadLine();

@@ -27,7 +27,7 @@ namespace LemonadeStand_3DayStarter
         // member methods (CAN DO)
         public void AddLemonsToInventory(int numberOfLemons)
         {
-            for(int i = 0; i < numberOfLemons; i++)
+            for (int i = 0; i < numberOfLemons; i++)
             {
                 Lemon lemon = new Lemon();
                 lemons.Add(lemon);
@@ -36,7 +36,7 @@ namespace LemonadeStand_3DayStarter
 
         public void AddSugarCubesToInventory(int numberOfSugarCubes)
         {
-            for(int i = 0; i < numberOfSugarCubes; i++)
+            for (int i = 0; i < numberOfSugarCubes; i++)
             {
                 SugarCube sugarCube = new SugarCube();
                 sugarCubes.Add(sugarCube);
@@ -45,7 +45,7 @@ namespace LemonadeStand_3DayStarter
 
         public void AddIceCubesToInventory(int numberOfIceCubes)
         {
-            for(int i = 0; i < numberOfIceCubes; i++)
+            for (int i = 0; i < numberOfIceCubes; i++)
             {
                 IceCube iceCube = new IceCube();
                 iceCubes.Add(iceCube);
@@ -54,7 +54,7 @@ namespace LemonadeStand_3DayStarter
 
         public void AddCupsToInventory(int numberOfCups)
         {
-            for(int i = 0; i < numberOfCups; i++)
+            for (int i = 0; i < numberOfCups; i++)
             {
                 Cup cup = new Cup();
                 cups.Add(cup);
@@ -69,6 +69,7 @@ namespace LemonadeStand_3DayStarter
         {
             for (int i = 0; i < player.recipe.amountOfLemons; i++)
             {
+
                 lemons.RemoveAt(0);
             }
         }
@@ -90,7 +91,7 @@ namespace LemonadeStand_3DayStarter
         }
         public void TakeCupsOutInventory(Player player)
         {
-              cups.RemoveAt(0);
+            cups.RemoveAt(0);
         }
     }
 }

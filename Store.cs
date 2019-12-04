@@ -69,8 +69,8 @@ namespace LemonadeStand_3DayStarter
                     player.inventory.AddIceCubesToInventory(iceCubesToPurchase);
                     break;
                 }
-            }while (transactionAmount > player.wallet.Money);
-            } 
+            } while (transactionAmount > player.wallet.Money);
+        }
 
 
         public void SellCups(Player player)
